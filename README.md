@@ -50,7 +50,7 @@ Preloaded Patrons Data in the Application:-
 |----------|---------|---------------------------|--------------------|----------------------------------------|
 | Library  | Book    | Manages                   | 1 → 0..*           | One Library can manage multiple Books |
 | Library  | Patron  | Registers                 | 1 → 0..*           | One Library can have many Patrons     |
-| Book     | Patron  | Is checked out by         | 0..1               | One Book can be checked out by 1 Patron at most (via `patronId`) |
+
 
 
 ## 💻 Requirements
