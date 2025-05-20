@@ -1,32 +1,40 @@
-# library-management-system
+📚 Library Management System (Java Console Application)
 A simple Java console-based Library Management System for managing books and patrons, including features like checkout, return, and late fee calculation.
 
+📦 Features
 
-Some Extenions:-
-Late fee is ₹10 per day after the due date.
-Checkout period is fixed at 14 days.
-Currently, a book can be checked out by only one patron at a time.
+- ➕ Add, update, and remove books
+- 👤 Add and list patrons
+- 📖 Book checkout with due date tracking
+- 🔄 Book return with late fee notification
+- 🧾 ISBN-based book identification
+- ✅ Preloaded sample data for testing
 
+Regarding Design:-
 This project follows the KISS (Keep It Simple, Stupid) principle with a clean, modular design. Core features like book checkout and return use straightforward logic, and the use of POJOs and preloaded data ensures simplicity and ease of testing.
+SRP (Single Responsibility Principle): Each class has a distinct role (Book, Patron, Library, Test).
+Encapsulation: Book and Patron properties are accessed via getters/setters.
 
 🗂 Project Structure:-
 com.rohitmdev29.library
-│
-├── Test.java       // Main class with console menu interface
-├── Library.java    // Core logic for managing books and patrons 
-├── Book.java       // Represents a Book entity.
-└── Patron.java     // Represents a Patron entity (library user).
 
+| File           | Description                                      |
+|----------------|--------------------------------------------------|
+| `Test.java`    | Main class with console menu interface           |
+| `Library.java` | Core logic for managing books and patrons        |
+| `Book.java`    | Represents a Book entity                         |
+| `Patron.java`  | Represents a Patron entity (library user)        |
 
 
 Preloaded Data:-
 When the application starts, it comes with a few books and patrons already added for testing and demo purposes.
+### 📚 Preloaded Books Data
 
-Preloaded Books Data in the Application:-
-Books:-
-Book1 by ABC (ISBN: 1111111111111, Year: 1949)
-Book2 by PQR (ISBN: 2222222222222, Year: 1960)
-Book3 by XYZ (ISBN: 3333333333333, Year: 1925)
+| Title  | Author | ISBN           | Publication Year |
+|--------|--------|----------------|------------------|
+| Book1  | ABC    | 1111111111111  | 1949             |
+| Book2  | PQR    | 2222222222222  | 1960             |
+| Book3  | XYZ    | 3333333333333  | 1925             |
 
 
 Preloaded Patrons Data in the Application:-
@@ -36,44 +44,46 @@ Preloaded Patrons Data in the Application:-
 | 2  | Patron2 | [patron2@email.com](mailto:patron2@email.com) |
 
 
-Relationships:-
-(1)Library → Book:-
-One Library manages many books.
-(2)Library → Patron:-
-One Library registers many patrons.
-(3)A Book may be checked out by at most one Patron (via patronId).
+### 🔗 Entity Relationships
+
+| From     | To      | Type of Relationship      | Multiplicity       | Notes                                 |
+|----------|---------|---------------------------|--------------------|----------------------------------------|
+| Library  | Book    | Manages                   | 1 → 0..*           | One Library can manage multiple Books |
+| Library  | Patron  | Registers                 | 1 → 0..*           | One Library can have many Patrons     |
+| Book     | Patron  | Is checked out by         | 0..1               | One Book can be checked out by 1 Patron at most (via `patronId`) |
 
 
+## 💻 Requirements
 
+- Java 8 or higher (uses `java.time` API)
+- Console environment (e.g., Terminal, IntelliJ IDEA)
 
-Requirements to Run this Application:-
-Java 8 or higher (uses java.time API).
-Console environment to interact with the menu.
+---
 
-Dependencies?
-(1)Pure Java (no external libraries).
+## ✅ Dependencies
 
+- ✅ Pure Java
+- ❌ No external libraries
 
-How to Run?
-Step1:-Compile all .java files.
-javac com/rohitmdev29/library/*.java
+---
 
-Step2:-Run the main class.
-java com.rohitmdev29.library.Test
+## 🛠️ How to Run
 
+```bash
++-------------------------------------+
+| javac com/rohitmdev29/library/*.java |
++-------------------------------------+
 
++------------------------------+
+| java com.rohitmdev29.library.Test |
++------------------------------+
 
-Sample Output:-
-Library Management System
-1. List Books
-2. Checkout Book
-3. Return Book
-4. List Patrons
-5. Add Book
-6. Remove Book
-7. Update Book
-8. Exit
-Enter your choice:
+```
+---
 
+Developed by rohitmdev29
 
+Feel free to reach out with suggestions, improvements, or questions.
+Your feedback and contributions are always welcome!
 
+Thanks for checking out this project! 😊
